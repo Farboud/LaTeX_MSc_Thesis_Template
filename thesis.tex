@@ -1,0 +1,131 @@
+% !TEX TS-program = XeLaTeX
+%to run:
+%xelatex thesis.tex
+%bibtex thesis.tex
+%xelatex thesis.tex
+%xelatex thesis.tex
+
+%Thesis template for M.Sc. degree
+\documentclass[12pt,oneside]{report}
+\usepackage[a4paper,right=3cm,top=3cm,left=2.5cm,bottom=2.5cm]{geometry}
+\renewcommand{\baselinestretch}{1.15}
+
+\usepackage[pdfauthor={نام نویسنده},
+            pdftitle={عنوان تر},
+            pdfsubject={موضوع},
+            pdfkeywords={واژگان کلیدی},
+            colorlinks=true]{hyperref}
+
+%اضافه کردن فهرست اشکال و جداول و کتاب‌نامه به فهرست مطالب
+\usepackage[nottoc]{tocbibind}
+%برای ارائه سورس‌کد در متن
+\usepackage{listings}
+%برای استفاده از شکل‌های چند بخشی
+\usepackage{caption}
+\usepackage{subcaption}
+%برای روابط ریاضی
+\usepackage{amsmath}
+%برای جداول بلند
+\usepackage{longtable}
+%برای استفاده از تصاویر
+ %تصاویر در دایرکتوری Figures قرار می‌گیرند.
+\usepackage{graphicx}
+\graphicspath{{./Figures/}}
+%برای شخصی‌سازی شمایل صفحه
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\rhead{\leftmark}
+\lhead{\rightmark}
+\fancyfoot{}
+\cfoot{\thepage}
+%برای ارجاع‌دهی به مراجع
+\usepackage[authoryear]{natbib}
+\usepackage{amssymb}
+\usepackage[localise,extrafootnotefeatures]{xepersian}
+\settextfont[Scale=1]{Yas}
+\setdigitfont{Yas}
+
+%تعریف دستور برای پانوشت بدون شماره
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\شروع{نوشتار}
+\pagenumbering{tartibi}
+\title{عنوان پایان‌نامه}
+\author{نام}
+\date{\today}
+%عنوان فارسی
+\input{chapters/title_FA}
+%تصویب‌نامه
+\input{chapters/approval}
+%اظهارنامه
+\input{chapters/ezharname}
+%تقدیم
+\chapter*{}
+\begin{center}
+\vspace{0.9cm}
+\large
+\textbf{تقدیم}
+\end{center}
+تقدیم به پدر و مادر عزیزم.
+%پیش‌گفتار
+\chapter*{}
+\begin{center}
+\vspace{0.9cm}
+\large
+\textbf{پیش‌گفتار}
+\end{center}
+یک رساله خوب، بایستی پیش‌گفتاری زیبا و رسا داشته باشد.
+%قدردانی
+\chapter*{}
+\begin{center}
+\vspace{0.9cm}
+\large
+\textbf{قدردانی}
+\end{center}
+تشکر از استاد راهنما.
+%چکیده فارسی
+\input{chapters/abstract_FA}
+%فهرست‌ها
+\tableofcontents \listoftables \listoffigures 
+
+\pagebreak
+\pagenumbering{arabic}
+%شروع مطالب تز
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%مقدمه
+\input{chapters/introduction}
+%مرور ادبیات
+\input{chapters/lit_review}
+%روش‌شناسی
+\input{chapters/methodology}
+%نتایج
+\input{chapters/results}
+%نتیجه‌گیری
+\input{chapters/conclusion}
+
+%پیوست
+\appendix
+\input{chapters/appendix}
+
+%%%%%%
+%مراجع
+\lhead{}
+%\renewcommand{\bibname}{\rl{{مراجع‌}}}‎
+\bibliographystyle{asa-fa}
+\bibliography{refs}
+
+%%%%%%%%%
+%English Abstract
+\input{chapters/abstract_EN}
+
+%%%%%%%%%%
+%English Title Page
+\input{chapters/title_EN}
+\end{latin}
+\پایان{نوشتار}
